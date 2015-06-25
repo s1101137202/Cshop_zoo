@@ -1,0 +1,68 @@
+﻿@model IEnumerable<zoo.Models.Animal>
+
+
+@{
+    ViewBag.Title = "動物列表";
+}
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3>動物列表</h3>
+                <div class="pull-right">
+                    <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+                </div>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr class="filters">
+                        <th><input type="text" class="form-control" placeholder="動物名字" disabled style="width:90%"></th>
+                        <th><input type="text" class="form-control" placeholder="出生日期" disabled style="width:90%"></th>
+                        <th><input type="text" class="form-control" placeholder="動物位置" disabled style="width:90%"></th>
+                        <th><input type="text" class="form-control" placeholder="品種名" disabled style="width:90%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model) {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.AnimalName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Animalbirth)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Cage.area)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Kind.KindName)</td>
+                        <td>
+                            
+                            <a class="btn icon-btn btn-primary" href="@Url.Action("Edit", new { id = item.AnimalID })">
+                                <span class="glyphicon btn-glyphicon glyphicon-edit img-circle text-success"></span>修改
+                            </a>
+                            <a class="btn icon-btn btn-success" href="@Url.Action("Details", new { id = item.AnimalID })">
+                                <span class="glyphicon btn-glyphicon glyphicon-list-alt img-circle text-success"></span>詳細
+                            </a>
+                            <a class="btn icon-btn btn-danger" href="@Url.Action("Delete", new { id = item.AnimalID })">
+                                <span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span>刪除
+                            </a>                            
+                        </td>
+                    </tr>
+                    }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            @Html.ActionLink("新增動物", "Create")
+        </p>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
