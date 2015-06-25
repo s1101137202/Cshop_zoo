@@ -207,6 +207,10 @@
     <Content Include="Content\jquery-ui.structure.min.css" />
     <Content Include="Content\jquery-ui.theme.min.css" />
     <Content Include="Content\main.css" />
+    <Content Include="DB\KUASCsharp.mdf" />
+    <Content Include="DB\KUASCsharp_log.ldf">
+      <DependentUpon>KUASCsharp.mdf</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
